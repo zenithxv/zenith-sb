@@ -108,7 +108,7 @@ def make_channels(session):
 def make_roles(session):
     tasks = []
     for i in range(100):
-        name = 'ZENITH X ZENITH'
+        name = 'ZENITH X DEADCORD'
         payload = {
           'color': 10038562,
           'name':name,
@@ -224,7 +224,7 @@ async def help(ctx, category=None):
     if category == None:
         await ctx.send(f'''
 >>> ```ini
-•✧• ══ [ZENITH ❖ MAIN] ══ •✧•
+•✧• ══ [DEADCORD ❖ MAIN] ══ •✧•
 Zenith ✧ 12.5 ✧ {client.command_prefix}
 
 ╭───────────── •  •  • [ ZENITH ]
@@ -238,7 +238,7 @@ help load  ; shows load panel
     if category == 'raid':
         await ctx.send(f'''
 >>> ```ini
-•✧• ══ [ZENITH ❖ RAID] ══ •✧•
+•✧• ══ [DEADCORD ❖ RAID] ══ •✧•
 Zenith ✧ 12.5 ✧ {client.command_prefix}
 
 ╭───────────── •  •  • [ ZENITH ]
@@ -258,7 +258,7 @@ massban    ; ban scraped membs
     elif category == 'misc':
         await ctx.send(f'''
 >>> ```ini
-•✧• ══ [ZENITH ❖ MISC] ══ •✧•
+•✧• ══ [DEADCORD ❖ MISC] ══ •✧•
 Zenith ✧ 12.5 ✧ {client.command_prefix}
 
 ╭───────────── •  •  • [ ZENITH ]
@@ -281,7 +281,7 @@ cum        ; cum.
     elif category == 'info':
         await ctx.send(f'''
 >>> ```ini
-•✧• ══ [ZENITH ❖ INFO] ══ •✧•
+•✧• ══ [DEADCORD ❖ INFO] ══ •✧•
 Zenith ✧ 12.5 ✧ {client.command_prefix}
 
 ╭───────────── •  •  • 
@@ -299,7 +299,7 @@ roleslist  ; get guild roles
     elif category == 'load':
         await ctx.send(f'''
 >>> ```ini
-•✧• ══ [ZENITH ❖ LOAD] ══ •✧•
+•✧• ══ [DEADCORD ❖ LOAD] ══ •✧•
 Zenith ✧ 12.5 ✧ {client.command_prefix}
 
 ╭───────────── •  •  • [ ZENITH ]
@@ -478,7 +478,7 @@ async def nicknuke(ctx):
   members = await ctx.guild.chunk()
   for member in members:
       try:
-          await member.edit(nick='〖ZENITH〗')
+          await member.edit(nick='〖DEADCORD〗')
       except:
           pass
 
@@ -487,7 +487,7 @@ async def webhooknuke(ctx):
   await ctx.message.delete()
   for c in ctx.guild.text_channels:
     try:
-      await c.create_webhook(name ="〖ZENITH〗")
+      await c.create_webhook(name ="〖DEADCORD〗")
     except:
       pass
 
@@ -543,7 +543,7 @@ async def manual(ctx):
   for c in ctx.guild.channels:
     for i in range(50):
       count += 1
-      await ctx.send('**@everyone 〖ZENITH X ZENITH〗** ' + f' '.join([random.choice(roles) for i in range(5)]) + f' | {count}')
+      await ctx.send('**@everyone 〖DEADCORD X ZENITH〗** ' + f' '.join([random.choice(roles) for i in range(5)]) + f' | {count}')
 
 @client.command(aliases=['massgc', 'mass-gc'])
 async def massaddgc(ctx, amount=int, *, user: discord.User = None):
@@ -551,7 +551,7 @@ async def massaddgc(ctx, amount=int, *, user: discord.User = None):
         if user is None:
             await ctx.send('''
 > ```ini
-> [ZENITH] ERROR! | User cannot be 'None'
+> [DEADCORD] ERROR! | User cannot be 'None'
 > ```
                         ''')
             return
@@ -564,7 +564,7 @@ async def massaddgc(ctx, amount=int, *, user: discord.User = None):
                     if resp.status == 200:
                         await ctx.send('''
 > ```ini
-> [ZENITH] GC Made
+> [DEADCORD] GC Made
 > ```
                         ''')
                         c = await resp.json()
@@ -573,20 +573,20 @@ async def massaddgc(ctx, amount=int, *, user: discord.User = None):
                             if resp.status == 200:
                                 await ctx.send('''
 > ```ini
-> [ZENITH] Left GC
+> [DEADCORD] Left GC
 > ```
                         ''')                            
                     if resp.status == 403:
                         await ctx.send('''
 > ```ini
-> [ZENITH] Unauthorized
+> [DEADCORD] Unauthorized
 > ```
                         ''')
                     if resp.status == 429 or resp.status == 400:
                         k = await resp.json()
                         await ctx.send(f'''
 > ```ini
-> [ZENITH] {resp.status} You are being ratelimited, wait after {k['retry_after']}
+> [DEADCORD] {resp.status} You are being ratelimited, wait after {k['retry_after']}
 > ```
                         ''')
                         await asyncio.sleep(k['retry_after'])
