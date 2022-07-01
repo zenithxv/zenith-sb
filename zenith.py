@@ -108,7 +108,7 @@ def make_channels(session):
 def make_roles(session):
     tasks = []
     for i in range(100):
-        name = 'ZENITH X DEADCORD'
+        name = 'ZENITH X SB'
         payload = {
           'color': 10038562,
           'name':name,
