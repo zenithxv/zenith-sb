@@ -45,7 +45,7 @@ zenith_fonts = ['ℨ𝔢𝔫𝔦𝔱𝔥', '𝖅𝖊𝖓𝖎𝖙𝖍', '𝓩𝓮
 
 
 intents = discord.Intents.all()
-client = commands.Bot(command_prefix = prefix, intents=intents, self_bot=False)
+client = commands.Bot(command_prefix = prefix, intents=intents, self_bot=True)
 client.remove_command('help')
 headers = {
   'Authorization':f'{token}',
