@@ -13,23 +13,6 @@ except:
     os.system('pip install colorama')
     import discord, random, json, aiohttp, aioconsole, httpx, asyncio, time, string, base64, os, io, contextlib, textwrap, datetime, threading, requests as rq; from discord.ext import commands; from traceback import format_exception; from colorama import Fore; from threading import Thread; from multiprocessing import Process
 
-##### === KEEPALIVE === #####
-
-from flask import Flask
-
-app = Flask('')
-
-@app.route('/')
-def main():
-  return "Your Bot Is Ready"
-
-def run():
-  app.run(host="0.0.0.0", port=8000)
-
-def keep_alive():
-  server = Thread(target=run)
-  server.start()
-
 ##### === VARIABLES === #####
 
 idlist = ['921402637214162946']
@@ -1053,5 +1036,4 @@ example (MODIFY THIS IN YOUR SCRIPT)
 
 ##### === ENDING CODE === #####
 
-keep_alive()
 client.run(token, bot=False)
